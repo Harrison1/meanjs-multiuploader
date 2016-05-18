@@ -42,7 +42,7 @@ $ gem install sass
 $ npm install gulp -g
 ```
 
-## Downloading MEAN.JS
+## Downloading MEAN.JS multiuploader application
 There are several ways you can get this app  :
 
 ### Cloning The GitHub Repository
