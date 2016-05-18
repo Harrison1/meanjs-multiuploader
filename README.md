@@ -43,16 +43,14 @@ $ npm install gulp -g
 ```
 
 ## Downloading MEAN.JS
-There are several ways you can get the MEAN.JS boilerplate:
+There are several ways you can get this app  :
 
 ### Cloning The GitHub Repository
-The recommended way to get MEAN.js is to use git to directly clone the MEAN.JS repository:
+Use git to directly clone the MEAN.JS repository:
 
 ```bash
 $ git clone https://github.com/romykundal/meanjs-multiuploader.git
 ```
-
-This will clone the latest version of the MEAN.JS repository to a **meanjs** folder.
 
 ### Downloading The Repository Zip File
 Another way to use the MEAN.JS boilerplate is to download a zip copy from the [master branch on GitHub](https://github.com/meanjs/mean/archive/master.zip). You can also do this using `wget` command:
