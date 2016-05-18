@@ -1,7 +1,7 @@
 
 [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://meanjs.org/)
 
-MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components.
+MEAN.JS is a full-stack JavaScript open-source programming solutions, which include [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) tools for build applications. This is easy to use by command line. First you will have to be strong in command line programs. It based upon Javascript code levels. It help to come on new platform to develop applications. Easy to use and any where it can use or compile with npm / node modules. There is a Mongodb that is database Management System (DBMS) Second is Express which is indicate framwork (MVC). It help to connect with database scripting Means that server side scripting. Third one is angular js that is use for frontend application which shows the GUI to user only. Fourth is Node js. this is main part of MEANJS project. Because it create environment for application on the server and locally. 
 
 ## Before You Begin
 Before you begin we recommend you read about the basic building blocks that assemble a MEAN.JS application:
