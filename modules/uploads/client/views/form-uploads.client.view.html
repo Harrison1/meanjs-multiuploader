@@ -1,0 +1,41 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.uploads._id ? 'Edit upload Images' : 'New Upload Images'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.uploadsForm" class="form-horizontal" ng-submit="vm.save(vm.form.uploadsForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="title">Title</label>
+          <input name="title" type="text" ng-model="vm.uploads.title" id="title" class="form-control" placeholder="Title" required>
+          <div ng-messages="vm.form.uploadsForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Images title is required.</p>
+          </div>
+        </div>
+        <div class="form-group" >
+                    <label>Banner Image: </label>
+                    <div class="input-group">
+                        <input type="file" ng-multiple="" id="fileInput" multiple="" name="file"  accept="image/*" ngf-max-size="10MB" />
+<!--                        <div ng-show="(file.file.$dirty || submitted) && file.file.$error.required">
+                            <h4 class="error">Please select image.</h4>
+                        </div>
+                        <div ng-show="(file.file.$dirty || submitted) && file.file.$error.maxSize">
+                            <h4 class="error">File too large {{file.size / 1000000|number:1}}MB: max {{file.$errorParam}}</h4>
+                        </div>-->
+                    </div>
+                    
+                   
+<!--                    <img id="img" src="" width="400" height="250" style="display:none;" />
+                    <img id="dbImg" src="uploads/banner/{{banner.image}}" width="400" height="250"  />
+                    <input type="hidden" ng-model="banner.imagefile" id="imageCode" >-->
+                </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.uploads._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

@@ -6,19 +6,37 @@ module.exports = {
       css: [
         // bower:css
         'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css'
+        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+        'public/lib/angular-toastr/angular-toastr.min.css',
+        'public/lib/bootstrap-slider/bootstrap-slider.css',
+        'public/lib/angular-ui-router-anim-in-out/css/anim-in-out.css',
         // endbower
       ],
       js: [
         // bower:js
+        'public/lib/jquery/dist/jquery.min.js',
+        'public/lib/bootstrap/dist/js/bootstrap.min.js',
         'public/lib/angular/angular.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-animate/angular-animate.js',
         'public/lib/angular-messages/angular-messages.js',
         'public/lib/angular-ui-router/release/angular-ui-router.js',
+        'public/lib/angular-ui-utils/ui-utils.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-        'public/lib/angular-file-upload/dist/angular-file-upload.js',
-        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
+        'public/lib/angular-file-upload/angular-file-upload.js',
+        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'public/lib/ngstorage/ngStorage.min.js',
+        'public/lib/angular-toastr/angular-toastr.tpls.min.js',
+        'public/lib/jquery-easing/jquery.easing.min.js',
+        'public/lib/bootstrap-slider/bootstrap-slider.js',
+        'public/lib/jquery-number-format/jquery.number.js',
+        'public/lib/angular-input-masks/angular-input-masks-standalone.js',
+        'public/lib/angular-ui-router-anim-in-out/anim-in-out.js',
+        /*'public/lib/d3/d3.v3.js',
+        'public/lib/nvd3/nv.d3.js',*/
+        'public/lib/google-charts/loader.js',
+        'public/lib/moment/moment.min.js',
+        //'public/lib/highcharts/highcharts.js',
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
