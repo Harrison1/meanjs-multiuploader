@@ -18,6 +18,8 @@ project run from project code dir :
 user: /var/www/html/multiuploader$ grunt --force
 
 
+#######################
+http://stackoverflow.com/questions/28856729/upload-multiple-image-using-ajax-php-and-jquery
 
 
 

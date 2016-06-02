@@ -13,20 +13,24 @@
           </div>
         </div>
         <div class="form-group" >
-                    <label>Banner Image: </label>
+                    <label>Images: </label>
                     <div class="input-group">
-                        <input type="file" ng-multiple="" id="fileInput" multiple="" name="file"  accept="image/*" ngf-max-size="10MB" />
+                        <input type="file" id="fileInput" multiple="true" name="file"  accept="image/*" ngf-max-size="10MB" />
 <!--                        <div ng-show="(file.file.$dirty || submitted) && file.file.$error.required">
                             <h4 class="error">Please select image.</h4>
                         </div>
                         <div ng-show="(file.file.$dirty || submitted) && file.file.$error.maxSize">
                             <h4 class="error">File too large {{file.size / 1000000|number:1}}MB: max {{file.$errorParam}}</h4>
-                        </div>-->
+                        </div>
+
+-->
+
                     </div>
                     
-                   
-<!--                    <img id="img" src="" width="400" height="250" style="display:none;" />
-                    <img id="dbImg" src="uploads/banner/{{banner.image}}" width="400" height="250"  />
+                    
+                    <div class="img-list" id="img_list"></div>  
+                    
+<!--                    <img id="dbImg" src="uploads/banner/{{banner.image}}" width="400" height="250"  />
                     <input type="hidden" ng-model="banner.imagefile" id="imageCode" >-->
                 </div>
         <div class="form-group">

@@ -23,28 +23,37 @@
         vm.uploads.$remove($state.go('articles.list'));
       }
     }
- function readImage() {
+    
+    var imagefiles = [];
+function readImage() {
      
-        //if (this.files && this.files[0]) {
+        
         if (this.files) {
-            console.log(this.files.length);
-            
-         for (i = 0; i < this.files.length; i++) { 
-            /*var FR = new FileReader();
-            FR.onload = function (e) {
-                //$('#img').show();
-                //$('#img').attr("src", e.target.result);
-                //$('#imageCode').val(e.target.result);
-                //$("#dbImg").hide();
-                //$scope.banner.imagefile = e.target.result;
-            };
-            FR.readAsDataURL(this.files[0]);*/
-             console.log(this.files[i]);
-         }    
-            
+           
+        
+            var img_tag = '';
+            var a;
+         for (var i = 0; i < this.files.length; i++) { 
+             
+            var FR = new FileReader();
+            FR.onload = (function (i) {
+                return function (e) {
+                console.log(i);
+                a = i+1
+                img_tag = '<img class="user-photos" id="img_'+a+'" src="'+e.target.result+'"  width="200" height="200" />';
+                $("div#img_list").append(img_tag);    
+                
+                }
+             })(i);
+            FR.readAsDataURL(this.files[i]);
+         } // loop end
         }
     }
-    $("#fileInput").change(readImage);
+    //$("#fileInput").change(readImage);
+  document.getElementById('fileInput').addEventListener('change', readImage, false);
+    
+    
+    
     
     // Save Article
     function save(isValid) {
