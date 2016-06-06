@@ -9,6 +9,7 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/angular-toastr/angular-toastr.min.css',
         'public/lib/bootstrap-slider/bootstrap-slider.css',
+        'public/lib/font-awesome/css/font-awesome.min.css',     
         'public/lib/angular-ui-router-anim-in-out/css/anim-in-out.css',
         // endbower
       ],
@@ -32,6 +33,11 @@ module.exports = {
         'public/lib/jquery-number-format/jquery.number.js',
         'public/lib/angular-input-masks/angular-input-masks-standalone.js',
         'public/lib/angular-ui-router-anim-in-out/anim-in-out.js',
+        'public/lib/oclazyload/dist/ocLazyLoad.min.js',
+        'public/lib/angular-loading-bar/build/loading-bar.min.js',
+        'https://angular-file-upload.appspot.com/js/ng-file-upload-shim.js',
+        'https://angular-file-upload.appspot.com/js/ng-file-upload.js',
+        'public/lib/ckeditor/ckeditor.js',
         /*'public/lib/d3/d3.v3.js',
         'public/lib/nvd3/nv.d3.js',*/
         'public/lib/google-charts/loader.js',

@@ -5,59 +5,66 @@
     .module('uploads')
     .controller('UploadsController', UploadsController);
 
-  UploadsController.$inject = ['$scope', '$state', 'uploadResolve', '$window', 'Authentication'];
+  UploadsController.$inject = ['$scope', '$state', 'uploadService', '$window', 'Authentication','toastr', '$timeout'];
 
-  function UploadsController($scope, $state, uploads, $window, Authentication) {
+  function UploadsController($scope, $state, uploadService, $window, Authentication,toastr, $timeout) {
     var vm = this;
 
-    vm.uploads = uploads;
+    vm.uploads = {};
     vm.authentication = Authentication;
     vm.error = null;
     vm.form = {};
-    vm.remove = remove;
     vm.save = save;
+    $scope.imagefiles = [];
 
-    // Remove existing Article
-    function remove() {
-      if ($window.confirm('Are you sure you want to delete?')) {
-        vm.uploads.$remove($state.go('articles.list'));
-      }
+     vm.list = function (reload){
+
+      uploadService.list().then(function(res){
+        $scope.imagefiles = res;
+        //console.log("listing");
+      }, function(err){
+        toastr.error(err)
+      });
     }
+    vm.list(false);
     
-    var imagefiles = [];
+    
+              
 function readImage() {
-     
-        
         if (this.files) {
-           
-        
+        toastr["info"]("Please wait...", "Uploading");
             var img_tag = '';
             var a;
-         for (var i = 0; i < this.files.length; i++) { 
-             
+            var fileData = {};
+         for (var i = 0; i < this.files.length; i++) {
             var FR = new FileReader();
             FR.onload = (function (i) {
                 return function (e) {
-                console.log(i);
                 a = i+1
-                img_tag = '<img class="user-photos" id="img_'+a+'" src="'+e.target.result+'"  width="200" height="200" />';
-                $("div#img_list").append(img_tag);    
-                
+                //img_tag = '<img class="user-photos" id="img_'+a+'" src="'+e.target.result+'"  width="200" height="200" />';
+                //$("div#img_list").append(img_tag);    
+                fileData = {filecode:e.target.result}
+                 uploadimagesServiceCreate(fileData);
                 }
              })(i);
             FR.readAsDataURL(this.files[i]);
+            
+            
+            console.log(i);
+            console.log(this.files.length);
          } // loop end
+        
+         //$timeout( function(){ vm.list(false); }, 5000);
+         //$timeout( function(){ toastr.clear(); }, 5000);
+          
         }
     }
     //$("#fileInput").change(readImage);
   document.getElementById('fileInput').addEventListener('change', readImage, false);
     
-    
-    
-    
-    // Save Article
+    // Save
     function save(isValid) {
-      if (!isValid) {
+      /*if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.uploadsForm');
         return false;
       }
@@ -78,7 +85,23 @@ function readImage() {
 
       function errorCallback(res) {
         vm.error = res.data.message;
-      }
+      }*/
     }
+    
+    
+    function uploadimagesServiceCreate(fileData) {
+        
+          uploadService.create(fileData).then(function (res){
+                            
+              //    toastr.success("Informations are saved succesfully");
+                }, function (err){
+                    
+                    toastr.error(err.message?err.message:"Error on saving home page content ");
+         });
+    }
+    
+    
+    
+    
   }
 }());

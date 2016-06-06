@@ -7,28 +7,29 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 /**
- * Article Schema
+ * Photos Schema
  */
-var UploadImagesSchema = new Schema({
+var PhotosSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
   },
-  title: {
+  photoname: {
     type: String,
     default: '',
-    trim: true,
-    required: 'Title cannot be blank'
   },
-  content: {
+  photopath: {
     type: String,
     default: '',
-    trim: true
   },
+  /*album: {
+    type: Schema.ObjectId,
+    ref: 'Album'
+  },*/
   user: {
     type: Schema.ObjectId,
     ref: 'User'
   }
 });
 
-mongoose.model('UploadImages', UploadImagesSchema);
+mongoose.model('Photos', PhotosSchema);

@@ -4,10 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/multiuploader/modules/uploads/client/controllers/uploads.client.controller.js</file>
-            <file>file:/var/www/html/multiuploader/modules/uploads/client/views/form-uploads.client.view.html</file>
-            <file>file:/var/www/html/multiuploader/modules/users/client/config/users.client.routes.js</file>
-            <file>file:/var/www/html/multiuploader/modules/users/client/controllers/settings/change-profile-picture.client.controller.js</file>
-            <file>file:/var/www/html/multiuploader/modules/users/client/views/settings/change-profile-picture.client.view.html</file>
+            <file>file:/var/www/html/multiuploader/modules/uploads/server/models/Photos.server.model.js</file>
+            <file>file:/var/www/html/multiuploader/modules/uploads/client/services/uploads.client.service.js</file>
+            <file>file:/var/www/html/multiuploader/modules/uploads/server/controllers/uploads.server.controller.js</file>
+            <file>file:/var/www/html/multiuploader/modules/core/server/views/layout.server.view.html</file>
+            <file>file:/var/www/html/multiuploader/modules/uploads/client/config/uploads.client.routes.js</file>
+            <file>file:/var/www/html/multiuploader/modules/uploads/server/routes/uploads.server.routes.js</file>
+            <file>file:/var/www/html/multiuploader/config/env/default.js</file>
+            <file>file:/var/www/html/multiuploader/config/env/development.js</file>
         </group>
     </open-files>
 </project-private>

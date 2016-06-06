@@ -5,23 +5,31 @@
  */
 var path = require('path'),
   mongoose = require('mongoose'),
-  UploadImages = mongoose.model('UploadImages'),
+  Album = mongoose.model('Album'),
+  Photos = mongoose.model('Photos'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
-
+var fs = require("fs");
 /**
  * Create an UploadImages
  */
 exports.create = function (req, res) {
-  var uploads = new UploadImages(req.body);
-  uploads.user = req.user;
+    var user = req.user;
+    
+    var base64Image = req.body.filecode;
+    var photoInfo = uploadCode(base64Image,user._id);
+    
+  var photos = new Photos();
+  photos.user = user;
+  photos.photoname = photoInfo.imagename;
+  photos.photopath = photoInfo.imagepath;
 
-  uploads.save(function (err) {
+  photos.save(function (err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(uploads);
+      res.json(photos);
     }
   });
 };
@@ -81,13 +89,13 @@ exports.delete = function (req, res) {
  * List of UploadImages
  */
 exports.list = function (req, res) {
-  UploadImages.find().sort('-created').populate('user', 'displayName').exec(function (err, articles) {
+  Photos.find().exec(function (err, photos) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(articles);
+      res.json(photos);
     }
   });
 };
@@ -115,3 +123,39 @@ exports.imagesByID = function (req, res, next, id) {
     next();
   });
 };
+
+    // Image ecode code make decode in this function
+    function decodeBase64Image(dataString) {
+      var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
+        response = {};
+
+      if (matches.length !== 3) {
+        return new Error('Invalid input string');
+      }
+
+      response.type = matches[1];
+      response.data = new Buffer(matches[2], 'base64');
+
+      return response;
+    }
+
+        function uploadCode(base64ImageCode,userId){
+            var imagename;
+            var imageBuffer = decodeBase64Image(base64ImageCode);
+            var myarr = imageBuffer.type.split("/");
+            //Then read the values from the array where 0 is the first
+            var imageType = myarr[1];
+            var imageLoc;
+
+                imageLoc = 'public/uploads/usersAlbums/';
+                imagename = 'vivid_'+userId+ '_' +Math.random()+ '.'+imageType;
+                var orgImageLoc = imageLoc+imagename;
+                    /**********Upload image image code here below*************/
+                    fs.writeFile(orgImageLoc, imageBuffer.data, function(err) {
+                      if (err) {
+                        return res.status(400).send( {message: getErrorMessage(err)})   
+                      }
+                    });
+         var imageData = {imagepath:imageLoc,imagename:imagename};
+        return imageData;
+        }
