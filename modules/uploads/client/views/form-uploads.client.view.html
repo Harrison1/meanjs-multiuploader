@@ -12,7 +12,7 @@
             <p class="help-block error-text" ng-message="required">Images title is required.</p>
           </div>
         </div>-->
-          {{imagefiles}}
+<!--          {{imagefiles}}-->
         <div class="form-group" >
                     <label>Images: </label>
                     <div class="input-group">
@@ -37,8 +37,8 @@
 <!--        <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.uploads._id ? 'Update' : 'Create'}}</button>
         </div>-->
-<div class="photos-list" id="photos_list">
-    <!--<img id="dbImg" src="uploads/banner/{{banner.image}}" width="400" height="250"  />-->
+<div class="photos-list" id="photos_list" >
+    <img ng-repeat="photo in imagefiles" id="dbImg" src="uploads/usersAlbums/{{photo.photoname}}" width="120" />
 </div> 
 
         <div ng-show="vm.error" class="text-danger">

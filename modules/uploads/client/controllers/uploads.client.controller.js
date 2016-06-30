@@ -92,7 +92,9 @@ function readImage() {
     function uploadimagesServiceCreate(fileData) {
         
           uploadService.create(fileData).then(function (res){
-                            
+                            //console.log(res);
+                            //$scope.imagefiles.push(res);
+                            $state.reload();
               //    toastr.success("Informations are saved succesfully");
                 }, function (err){
                     
